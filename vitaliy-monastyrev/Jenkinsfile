@@ -20,10 +20,10 @@ pipeline {
         stage('Test') {
             steps {
                 script {
-					if (params.isTest) {
-						echo 'Testing..'
-						bat "mvn test"
-					}
+			if (params.isTest) {
+				echo 'Testing..'
+				bat "mvn test"
+			}
                 }
             }
         }
