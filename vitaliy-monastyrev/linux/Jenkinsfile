@@ -1,0 +1,37 @@
+pipeline {
+    agent any
+    tools { 
+        maven params.Maven
+        jdk params.JDK
+    }
+    stages {
+        stage('Git') {
+            steps {
+                echo 'Git..'
+                git params.Github_repo
+            }
+        }
+        stage('Build') {
+            steps {
+                echo 'Build..'
+                sh "mvn package"
+            }
+        }
+        stage('Test') {
+            steps {
+                script {
+			if (params.isTest) {
+				echo 'Testing..'
+				sh "mvn test"
+			}
+                }
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+                sh "mvn ${params.Deploy}"
+            }
+        }
+    }
+}
