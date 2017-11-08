@@ -17,7 +17,7 @@ Users:
 
 * `docker pull mrsandmanrus/custom_jenkins`
 
-* `docker start -p 8080:8080 -p 50000:50000 -p 8888:8888 mrsandmanrus/custom_jenkins`
+* `docker run -p 8080:8080 -p 50000:50000 -p 8888:8888 mrsandmanrus/custom_jenkins`
 
 * Go to [127.0.0.1:8080](http://127.0.0.1:8080).
 
