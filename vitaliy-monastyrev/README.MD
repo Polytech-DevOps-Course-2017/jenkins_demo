@@ -9,7 +9,9 @@ You can download docker image [here](https://hub.docker.com/r/mrsandmanrus/custo
 Custom plugins:
 * Role-based Authorization Strategy
 * Build Monitor Plugin
+
 Users:
+
 * admin/admin
 * viewer/viewer
 
