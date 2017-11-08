@@ -2,7 +2,7 @@
 
 ## Description
 
-It's a simple Pipeline script for Jenkinse for building Java application with parameters. 
+It's a simple Pipeline script for Jenkinse for building Java application with parameters. There are 2 version for linux and windows.
 
 ## Link
 You can download docker image [here](https://hub.docker.com/r/mrsandmanrus/custom_jenkins/).
@@ -18,8 +18,6 @@ Users:
 * `docker pull mrsandmanrus/custom_jenkins`
 
 * `docker start -p 8080:8080 -p 50000:50000 -p 8888:8888 mrsandmanrus/custom_jenkins`
-
-* Go to [127.0.0.1:8080](http://127.0.0.1:8080).
 
 * Go to [127.0.0.1:8080](http://127.0.0.1:8080).
 
