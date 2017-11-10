@@ -1,4 +1,4 @@
-# Jenkinse: java builder
+# Jenkins: java builder
 
 ## Description
 
