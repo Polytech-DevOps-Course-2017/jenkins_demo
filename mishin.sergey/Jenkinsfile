@@ -17,7 +17,8 @@ else
     git clone https://github.com/Polytech-DevOps-Course-2017/docker_demo.git
 fi
 
-cd docker_demo; python3 -m unittest -v
+cd docker_demo/mishin.sergey/pystorage-composed
+docker-compose up
 '''
             }
         }
