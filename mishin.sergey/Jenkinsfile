@@ -2,14 +2,15 @@ pipeline {
     agent any
 
     stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
+        // stage('Build') {
+        //     steps {
+        //         // Well, it's python...
+        //     }
+        // }
         stage('Test') {
             steps {
                 echo 'Testing..'
+                python3 -m unittest -v
             }
         }
         stage('Deploy') {
