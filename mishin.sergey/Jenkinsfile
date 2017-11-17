@@ -11,8 +11,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh 'git clone https://github.com/Polytech-DevOps-Course-2017/docker_demo.git'
-                sh 'cd docker_demo'
-                sh 'python3 -m unittest -v'
+                sh 'cd docker_demo; python3 -m unittest -v'
             }
         }
         stage('Deploy') {
