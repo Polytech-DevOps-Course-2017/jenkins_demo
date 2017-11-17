@@ -27,6 +27,7 @@ cd mishin.sergey/meaningless-app/
             steps {
                 echo 'Testing..'
                 sh '''
+cd mishin.sergey/meaningless-app/
 
 /root/.cargo/bin/cargo test -v
 '''
@@ -46,6 +47,7 @@ cd mishin.sergey/meaningless-app/
             steps {
                 echo 'Testing..'
                 sh '''
+cd mishin.sergey/meaningless-app/
 
 /root/.cargo/bin/cargo test -v --release
 '''
