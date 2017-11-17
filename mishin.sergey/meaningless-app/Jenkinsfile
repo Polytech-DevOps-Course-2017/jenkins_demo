@@ -2,25 +2,52 @@ pipeline {
     agent any
 
     stages {
-        // stage('Build') {
-        //     steps {
-        //         // Well, it's python...
-        //     }
-        // }
-        stage('Test') {
+        stage('Prepare') {
             steps {
-                echo 'Testing..'
                 sh '''
 if [ -d docker_demo ]; then
     rm -rf jenkins_demo
 fi
 
 git clone https://github.com/qezz/jenkins_demo.git
-
+'''
+            }
+        }
+        stage('Build (Debug)') {
+            steps {
+                sh '''
 cd mishin.sergey/meaningless-app/
 
 /root/.cargo/bin/cargo clean
+/root/.cargo/bin/cargo build
+'''
+            }
+        }
+        stage('Test (Debug)') {
+            steps {
+                echo 'Testing..'
+                sh '''
+
 /root/.cargo/bin/cargo test -v
+'''
+            }
+        }
+        stage('Build (Release)') {
+            steps {
+                sh '''
+cd mishin.sergey/meaningless-app/
+
+/root/.cargo/bin/cargo clean
+/root/.cargo/bin/cargo build --release
+'''
+            }
+        }
+        stage('Test (Release)') {
+            steps {
+                echo 'Testing..'
+                sh '''
+
+/root/.cargo/bin/cargo test -v --release
 '''
             }
         }
