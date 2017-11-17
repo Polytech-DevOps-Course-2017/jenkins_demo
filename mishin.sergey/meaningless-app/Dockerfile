@@ -6,6 +6,10 @@ RUN ls -la /home
 
 USER root
 
+#install gcc
+RUN apt-get update
+RUN apt-get install -y build-essential
+
 # install rust
 RUN curl https://sh.rustup.rs -sSf -o rustup.sh
 RUN chmod +x rustup.sh

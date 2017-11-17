@@ -26,6 +26,8 @@ cd mishin.sergey/meaningless-app/
         stage('Deploy') {
             steps {
                 echo 'Deploying....'
+                echo 'TODO:'
+                echo '  Generate docs'
             }
         }
     }
