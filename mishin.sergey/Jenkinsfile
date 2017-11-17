@@ -11,7 +11,7 @@ pipeline {
             steps {
                 echo 'Testing..'
                 sh '''
-if [[ -d docker_demo ]]; then
+if [ -d docker_demo ]; then
     rm -rf docker_demo
 else
     git clone https://github.com/Polytech-DevOps-Course-2017/docker_demo.git
