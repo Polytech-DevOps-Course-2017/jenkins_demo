@@ -12,10 +12,12 @@ pipeline {
                 echo 'Testing..'
                 sh '''
 if [ -d docker_demo ]; then
-    rm -rf docker_demo
+    rm -rf jenkins_demo
 fi
 
-git clone https://github.com/Polytech-DevOps-Course-2017/docker_demo.git
+git clone https://github.com/Polytech-DevOps-Course-2017/jenkins_demo.git
+
+cd mishin.sergey/meaningless-app/
 
 /root/.cargo/bin/cargo test -v
 '''
