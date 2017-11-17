@@ -1,0 +1,31 @@
+pipeline {
+    agent any
+
+    stages {
+        // stage('Build') {
+        //     steps {
+        //         // Well, it's python...
+        //     }
+        // }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
+                sh '''
+if [ -d docker_demo ]; then
+    rm -rf docker_demo
+fi
+
+git clone https://github.com/Polytech-DevOps-Course-2017/docker_demo.git
+
+echo "Test.."
+'''
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
+}
+
