@@ -17,7 +17,7 @@ fi
 
 git clone https://github.com/Polytech-DevOps-Course-2017/docker_demo.git
 
-cargo test -v
+/root/.cargo/bin/cargo test -v
 '''
             }
         }
