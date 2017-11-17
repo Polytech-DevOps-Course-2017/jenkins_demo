@@ -35,7 +35,7 @@ node {
         junit allowEmptyResults: true, testResults: 'reports/junit*.xml'
         step([
             $class: 'WarningsPublisher',
-            parserConfigurations: [[parserName: 'PyLint', pattern: 'reports/pylint.report']],
+            parserConfigurations: [[parserName: 'PyLint', pattern: 'reports/pylint.report'], [parserName: 'pep8', pattern: 'reports/pep8.report']],
         ])
     }
 
