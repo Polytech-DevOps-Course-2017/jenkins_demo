@@ -33,10 +33,17 @@ node {
     
     stage("Reporting results") {
         junit allowEmptyResults: true, testResults: 'reports/junit*.xml'
-        warnings canComputeNew: false, canResolveRelativePaths: false, categoriesPattern: '', consoleParsers: [[parserName: 'Pep8']], defaultEncoding: '', excludePattern: '', healthy: '', includePattern: '', messagesPattern: 'reports/pep8.report', unHealthy: ''
         step([
             $class: 'WarningsPublisher',
-            parserConfigurations: [[parserName: 'PyLint', pattern: 'reports/pylint.report'], [parserName: 'pep8', pattern: 'reports/pep8.report']],
+            parserConfigurations: [[parserName: 'Pep8', pattern: 'reports/pep8.report']], 
+            unstableTotalAll: '0', 
+            usePreviousBuildAsReference: true
+        ])
+        step([
+            $class: 'WarningsPublisher',
+            parserConfigurations: [[parserName: 'PyLint', pattern: 'reports/pylint.report']], 
+            unstableTotalAll: '0', 
+            usePreviousBuildAsReference: true
         ])
         step([
             $class: 'CoberturaPublisher',
