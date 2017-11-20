@@ -37,8 +37,8 @@ node {
             $class: 'WarningsPublisher',
             parserConfigurations: [[parserName: 'PyLint', pattern: 'reports/pylint.report'], [parserName: 'pep8', pattern: 'reports/pep8.report']],
         ])
-        cobertura 
-            autoUpdateHealth: false, 
+        step([
+            $class: 'CoberturaPublisher',
             autoUpdateStability: false, 
             coberturaReportFile: 'reports/coverage.xml', 
             conditionalCoverageTargets: '70, 0, 0', 
@@ -50,6 +50,6 @@ node {
             onlyStable: false, 
             sourceEncoding: 'ASCII', 
             zoomCoverageChart: false
-    }
+        ])
 
 }
