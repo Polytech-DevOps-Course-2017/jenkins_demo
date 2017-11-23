@@ -5,9 +5,6 @@ pipeline {
         stage('Prepare') {
             steps {
                 sh '''
-rustc --version
-cargo --version
-
 if [ -d docker_demo ]; then
     rm -rf jenkins_demo
 fi
