@@ -53,11 +53,20 @@ cd mishin.sergey/meaningless-app/
 '''
             }
         }
-        stage('Deploy') {
+        stage('Docs') {
             steps {
-                echo 'Deploying....'
-                echo 'TODO:'
-                echo '  Generate docs'
+                echo 'Generate docs...'
+                sh '''
+/root/.cargo/bin/cargo doc
+'''
+            }
+        }
+        stage('Release run') {
+            steps {
+                echo 'Release run,,,'
+                sh '''
+/root/.cargo/bin/cargo
+'''
             }
         }
     }
