@@ -54,6 +54,7 @@ cd mishin.sergey/meaningless-app/
                 echo 'Generate docs...'
                 sh '''
 cd mishin.sergey/meaningless-app/
+ls -la
 /root/.cargo/bin/cargo doc
 '''
             }
@@ -63,7 +64,7 @@ cd mishin.sergey/meaningless-app/
                 echo 'Release run,,,'
                 sh '''
 cd mishin.sergey/meaningless-app/
-/root/.cargo/bin/cargo
+/root/.cargo/bin/cargo run --release
 '''
             }
         }
