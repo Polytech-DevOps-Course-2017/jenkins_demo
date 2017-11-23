@@ -2,6 +2,8 @@
 
 ## Quick start ##
 
+### Simple way ###
+
 To run with configured jenkins:
 
 ```shell
@@ -13,6 +15,24 @@ This will:
 * download the pre-configured `JENKINS_HOME` folder
   from [qezz/jenkins-heavy-var](https://github.com/qezz/jenkins-heavy-var.git).
 * run docker container with jenkins on port **8082**
+
+### DIY way ###
+
+You can bootstrap your own JENKINS_HOME and use provided Jenkinsfile to build a pipeline
+
+## Things ##
+
+### Monitoring Plugin ###
+
+See JavaMelody Monitoring at http://localhost:8082/monitoring
+
+### Matrix Authorization Strategy Plugin ###
+
+Users:
+* admin:admin
+* guest:guest (read only for one particular pipeline 'rust-simple' )
+
+![meow](https://qezz.github.io/shared/jenkins-users.png "Privet")
 
 ## License ##
 
