@@ -18,9 +18,27 @@ This will:
 
 ### DIY way ###
 
-You can bootstrap your own JENKINS_HOME and use provided Jenkinsfile to build a pipeline
+You can bootstrap your own JENKINS_HOME and use provided Jenkinsfile to build a pipeline.
+
+See Makefile to properly attach your *jenkins_home* to the docker container.
 
 ## Things ##
+
+### Pipeline ###
+
+Features:
+
+* Build every 1h
+* 8 stages
+  1. checkout the repo
+  2. prepare
+  3. build (debug)
+  4. test (debug)
+  5. build (release)
+  6. test (release)
+  7. generate docs
+  8. run the release app
+* configured for `guest` user (see below)
 
 ### Monitoring Plugin ###
 
