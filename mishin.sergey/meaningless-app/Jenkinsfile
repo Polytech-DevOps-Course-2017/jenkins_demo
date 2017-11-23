@@ -17,7 +17,6 @@ git clone https://github.com/qezz/jenkins_demo.git
             steps {
                 sh '''
 cd mishin.sergey/meaningless-app/
-
 /root/.cargo/bin/cargo clean
 /root/.cargo/bin/cargo build
 '''
@@ -28,7 +27,6 @@ cd mishin.sergey/meaningless-app/
                 echo 'Testing..'
                 sh '''
 cd mishin.sergey/meaningless-app/
-
 /root/.cargo/bin/cargo test -v
 '''
             }
@@ -37,7 +35,6 @@ cd mishin.sergey/meaningless-app/
             steps {
                 sh '''
 cd mishin.sergey/meaningless-app/
-
 /root/.cargo/bin/cargo clean
 /root/.cargo/bin/cargo build --release
 '''
@@ -48,7 +45,6 @@ cd mishin.sergey/meaningless-app/
                 echo 'Testing..'
                 sh '''
 cd mishin.sergey/meaningless-app/
-
 /root/.cargo/bin/cargo test -v --release
 '''
             }
@@ -57,6 +53,7 @@ cd mishin.sergey/meaningless-app/
             steps {
                 echo 'Generate docs...'
                 sh '''
+cd mishin.sergey/meaningless-app/
 /root/.cargo/bin/cargo doc
 '''
             }
@@ -65,6 +62,7 @@ cd mishin.sergey/meaningless-app/
             steps {
                 echo 'Release run,,,'
                 sh '''
+cd mishin.sergey/meaningless-app/
 /root/.cargo/bin/cargo
 '''
             }
