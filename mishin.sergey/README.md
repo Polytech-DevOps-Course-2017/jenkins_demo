@@ -55,7 +55,7 @@ Users:
 * admin:admin
 * guest:guest (read only for one particular pipeline 'rust-simple' )
 
-![image](https://qezz.github.io/shared/jenkins-users.pngw "Privet")
+![images](https://qezz.github.io/shared/jenkins-users.png "Hey")
 ![meow](https://qezz.github.io/shared/clojure-website-heroku.png "Privet")
 
 
