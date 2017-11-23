@@ -5,6 +5,9 @@ pipeline {
         stage('Prepare') {
             steps {
                 sh '''
+rustc --version
+cargo --version
+
 if [ -d docker_demo ]; then
     rm -rf jenkins_demo
 fi
@@ -55,7 +58,7 @@ cd mishin.sergey/meaningless-app/
                 sh '''
 cd mishin.sergey/meaningless-app/
 ls -la
-/root/.cargo/bin/cargo doc
+/root/.cargo/bin/cargo doc --bin meaningless-app
 '''
             }
         }
