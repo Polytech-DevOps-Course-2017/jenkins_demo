@@ -16,6 +16,11 @@ This will:
   from [qezz/jenkins-heavy-var](https://github.com/qezz/jenkins-heavy-var.git).
 * run docker container with jenkins on port **8082**
 
+**Important**
+
+`jenkins-heavy-var` is going to be the hude submodule, so do not try
+to include it's content to this (almost lightweight) repo.
+
 ### DIY way ###
 
 You can bootstrap your own JENKINS_HOME and use provided Jenkinsfile to build a pipeline.
