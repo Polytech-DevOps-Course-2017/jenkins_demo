@@ -55,7 +55,7 @@ Users:
 * admin:admin
 * guest:guest (read only for one particular pipeline 'rust-simple' )
 
-![asd](https://qezz.github.io/shared/jenkins-users.png)
+![image here](https://qezz.github.io/shared/jenkins-users.png)
 (if you can't see an image, go to https://qezz.github.io/shared/jenkins-users.png)
 
 ## License ##
