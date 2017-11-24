@@ -11,7 +11,7 @@ It's a simple Pipeline script for Jenkins for building Java application with par
 3. Go to: 127.0.0.1:8080
 4. Log as admin/admin
 5. Start Java_builder with default parameters
-6. Go to: 127.0.0.1:8080
+6. Go to: 127.0.0.1:8888
 
 ##Additional info
 
