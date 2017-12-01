@@ -1,0 +1,10 @@
+[package]
+name = "meaningless-app"
+version = "0.1.0"
+authors = ["Sergey Mishin <sergei.a.mishin@gmail.com>"]
+
+[dependencies]
+
+[[bin]]
+name = "meaningless-app"
+doc = false

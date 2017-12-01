@@ -1,0 +1,73 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Prepare') {
+            steps {
+                sh '''
+if [ -d docker_demo ]; then
+    rm -rf jenkins_demo
+fi
+
+git clone https://github.com/qezz/jenkins_demo.git
+'''
+            }
+        }
+        stage('Build (Debug)') {
+            steps {
+                sh '''
+cd mishin.sergey/meaningless-app/
+/root/.cargo/bin/cargo clean
+/root/.cargo/bin/cargo build
+'''
+            }
+        }
+        stage('Test (Debug)') {
+            steps {
+                echo 'Testing..'
+                sh '''
+cd mishin.sergey/meaningless-app/
+/root/.cargo/bin/cargo test -v
+'''
+            }
+        }
+        stage('Build (Release)') {
+            steps {
+                sh '''
+cd mishin.sergey/meaningless-app/
+/root/.cargo/bin/cargo clean
+/root/.cargo/bin/cargo build --release
+'''
+            }
+        }
+        stage('Test (Release)') {
+            steps {
+                echo 'Testing..'
+                sh '''
+cd mishin.sergey/meaningless-app/
+/root/.cargo/bin/cargo test -v --release
+'''
+            }
+        }
+        stage('Docs') {
+            steps {
+                echo 'Generate docs...'
+                sh '''
+cd mishin.sergey/meaningless-app/
+ls -la
+/root/.cargo/bin/cargo doc --bin meaningless-app
+'''
+            }
+        }
+        stage('Release run') {
+            steps {
+                echo 'Release run,,,'
+                sh '''
+cd mishin.sergey/meaningless-app/
+/root/.cargo/bin/cargo run --release
+'''
+            }
+        }
+    }
+}
+
