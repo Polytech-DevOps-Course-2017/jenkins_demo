@@ -1,0 +1,46 @@
+Running from: /usr/share/jenkins/jenkins.war
+webroot: EnvVars.masterEnvVars.get("JENKINS_HOME")
+Dec 10, 2017 9:33:15 PM winstone.Logger logInternal
+INFO: Beginning extraction from war file
+Dec 10, 2017 9:33:17 PM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: jetty-winstone-2.8
+Dec 10, 2017 9:33:20 PM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: NO JSP Support for , did not find org.apache.jasper.servlet.JspServlet
+Jenkins home directory: /var/jenkins_home found at: EnvVars.masterEnvVars.get("JENKINS_HOME")
+Dec 10, 2017 9:33:21 PM org.eclipse.jetty.util.log.JavaUtilLog info
+INFO: Started SelectChannelConnector@0.0.0.0:8080
+Dec 10, 2017 9:33:21 PM winstone.Logger logInternal
+INFO: Winstone Servlet Engine v2.0 running: controlPort=disabled
+Dec 10, 2017 9:33:21 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started initialization
+Dec 10, 2017 9:33:33 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Listed all plugins
+Dec 10, 2017 9:33:33 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Prepared all plugins
+Dec 10, 2017 9:33:33 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Started all plugins
+Dec 10, 2017 9:33:37 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Augmented all extensions
+Dec 10, 2017 9:33:37 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Loaded all jobs
+Dec 10, 2017 9:33:40 PM hudson.model.AsyncPeriodicWork$1 run
+INFO: Started Download metadata
+Dec 10, 2017 9:33:41 PM jenkins.util.groovy.GroovyHookScript execute
+INFO: Executing /var/jenkins_home/init.groovy.d/tcp-slave-agent-port.groovy
+Dec 10, 2017 9:33:41 PM org.jenkinsci.main.modules.sshd.SSHD start
+INFO: Started SSHD at port 37911
+Dec 10, 2017 9:33:42 PM jenkins.InitReactorRunner$1 onAttained
+INFO: Completed initialization
+Dec 10, 2017 9:33:42 PM hudson.WebAppMain$3 run
+INFO: Jenkins is fully up and running
+Dec 10, 2017 9:33:52 PM hudson.model.UpdateSite updateData
+INFO: Obtained the latest update center data file for UpdateSource default
+--> setting agent port for jnlp
+Dec 10, 2017 9:33:52 PM hudson.model.DownloadService$Downloadable load
+INFO: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+Dec 10, 2017 9:33:53 PM hudson.model.DownloadService$Downloadable load
+INFO: Obtained the updated data file for hudson.tasks.Ant.AntInstaller
+Dec 10, 2017 9:33:55 PM hudson.model.DownloadService$Downloadable load
+INFO: Obtained the updated data file for hudson.tools.JDKInstaller
+Dec 10, 2017 9:33:55 PM hudson.model.AsyncPeriodicWork$1 run
+INFO: Finished Download metadata. 14,904 ms
