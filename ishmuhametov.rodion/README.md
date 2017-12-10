@@ -7,7 +7,7 @@
 * `docker-machine ip` - get IP of the Docker machine
 * Go to ip:8080 to access Jenkins
 * `docker exec jenkins-test1 tail -f /var/log/jenkins/jenkins.log` - tail the log file
-* `docker cp jenkins-test1:/var/log/jenkins/jenkins.log jenkins.log` + `cat jenkins.log` - retrieve logs if Jenkins crashes
+* `docker cp jenkins-test1:/var/log/jenkins/jenkins.log jenkins.log` + `cat jenkins.log` - retrieve logs if Jenkins crashes (you can find an example in this repository)
   
 ## Screenshot
 ![Dashboard](https://i.imgur.com/xYdG6Kb.png)
