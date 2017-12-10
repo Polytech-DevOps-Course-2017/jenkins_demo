@@ -1,0 +1,12 @@
+FROM jenkins:latest
+
+LABEL maintainer "Aleksandra Zhuravleva <guravleva.aleksandra@gmail.com>"
+
+USER root
+
+RUN apt-get update
+RUN apt-get install -y maven
+
+COPY var_jenkins_home /var/jenkins_home
+
+ENTRYPOINT ["/bin/tini", "--", "/usr/local/bin/jenkins.sh"]
