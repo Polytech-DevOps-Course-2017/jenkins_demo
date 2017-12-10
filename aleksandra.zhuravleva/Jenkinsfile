@@ -1,0 +1,59 @@
+node {
+    stage('Preparation') { 
+        dir('hibernate-db-analyzer') {
+            deleteDir()
+        }
+        sh 'git clone https://github.com/sashatoday/hibernate-db-analyzer.git'
+        
+        dir('SpringDBAnalyzer') {
+            deleteDir()
+        }
+        sh 'git clone https://github.com/sashatoday/SpringDBAnalyzer.git'
+    }
+    stage('Build Hibernate') {
+        dir('hibernate-db-analyzer') {
+            sh 'mvn clean package'
+            archive 'build/libs/**/*.jar'
+
+        }
+    }
+    stage('Build Spring') {
+        dir('SpringDBAnalyzer') {
+            sh 'mvn clean package'
+            archive 'build/libs/**/*.jar'
+
+        }
+    }
+    stage('Test') {
+        dir('hibernate-db-analyzer') {
+            sh 'mvn test'
+        }
+        dir('SpringDBAnalyzer') {
+            sh 'mvn test'
+        }
+    }
+    stage('Deploy') {
+        echo 'Deploy a docker compose...'
+        
+        sh """
+echo "
+version: '2'
+services:
+  db:
+    image: sashadock/postgres_database:latest
+    hostname: db
+  app:
+    image: sashadock/rest_service_application:latest
+    hostname: app
+    ports:
+      - 8080:8080
+    links:
+      - db:db 
+    depends_on:
+- db
+" > docker-compose.yml
+"""
+    echo 'Deployed.'
+    sh 'cat docker-compose.yml'
+    }
+}
