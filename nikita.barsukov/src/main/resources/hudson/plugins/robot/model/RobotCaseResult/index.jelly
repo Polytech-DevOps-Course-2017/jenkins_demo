@@ -1,0 +1,68 @@
+<!--
+Copyright 2008-2014 Nokia Solutions and Networks Oy
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+   http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt">
+  <l:layout>
+  <st:include it="${it.parentAction.owner}" page="sidepanel.jelly"/>
+  <script src="${rootURL}/plugin/robot/robot.js"/>
+  <st:include page="robotcss.jelly" />
+    <l:main-panel>
+      <j:choose>
+        <j:when test="${it.isPassed()}">
+          <j:set var="status" value="PASS" />
+        </j:when>
+        <j:otherwise>
+          <j:set var="status" value="FAIL" />
+        </j:otherwise>
+      </j:choose>
+      <j:set var="prevcase" value="${it.previousResult}" />
+      <table class="summary">
+      <tbody>
+      <tr><th class="${status}">TEST CASE:</th><td><strong>${it.name}</strong><j:if test="${!it.critical}"> (non-critical)</j:if></td></tr>
+      <tr><th>Tags:</th><td>${it.commaSeparatedTags}</td></tr>
+      <tr><th>Duration:</th><td>${it.humanReadableDuration} (${it.getDurationDiff(prevcase)})</td></tr>
+      <tr><th>Status:</th><td><span class="${status}">${status}</span> (<j:if test="${!it.critical}">non-</j:if>critical)</td></tr>
+      <j:if test="${!it.isPassed()}">
+        <tr><th>Message:</th><td class="error-message">${it.errorMsg}</td></tr>
+      </j:if>
+      <j:if test="${it.hasLog}">
+        <tr><th>Log File:</th><td><a href="${rootURL}/${it.parentAction.owner.url}${it.parentAction.urlName}/report/${it.logFile}#${it.id}">${it.logFile}</a></td></tr>
+      </j:if>
+      </tbody>
+      </table>
+      <div style="margin-top:20px;">
+       <div class="passfail">
+       <h3>Test Result Trend</h3>
+        <a id="passfailgraph_hd" href="">
+          <img id="passfailgraph" src="" title="Show bigger image" width="500" height="200"/>
+        </a><br/>
+        <p><label><input min="0" step="1" max="9999" value="" placeholder="all" type="number" id="maxBuildsToShow"
+                         onchange="redrawPassFailGraph(''); redrawDurationGraph('');"/>Max builds</label></p>
+        <br/><p style="float:right"><a id="passfailgraph_hd_link" href="">Show bigger image</a></p>
+       </div>
+       <script>initPassFailGraph('');</script>
+       <div style="float:left; margin: 20px; border: 1px solid #ccc; padding: 10px;">
+        <h3>Duration Trend</h3>
+          <a id="durationgraph_hd" href="">
+            <img id="durationgraph" src="" title="Show bigger image" width="500" height="200"/>
+          </a><br/>
+          <p style="float:right"><a id="durationgraph_hd_link" href="">Show bigger image</a></p>
+        </div>
+       <script>initDurationGraph('');</script>
+       <div style="clear:both;"></div>
+      </div>
+      </l:main-panel>
+  </l:layout>
+</j:jelly>
